@@ -1,17 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Profile from "./views/Profile";
+import BuyerPage from "./views/BuyerPage";
+import SellerPage from "./views/SellerPage";
 import { useAuth0 } from "@auth0/auth0-react";
-import Hero from './components/Hero';
-import Features from './components/Features';
-// styles
+import Hero from "./components/Hero";
+import Features from "./components/Features";
+import { RoyaltyProvider } from "./RoyaltyContext";
 import "./App.css";
-
-// fontawesome
 import initFontAwesome from "./utils/initFontAwesome";
 initFontAwesome();
 
@@ -27,20 +27,23 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <div id="app" className="d-flex flex-column h-100">
-        <NavBar />
-        <Switch>
-          <Route path="/profile" component={Profile} />
-          <Route path="/" exact>
-            <Hero />
-            <Features />
-          </Route>
-          {/* Define other routes for Listings, Get Funding, etc. */}
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <RoyaltyProvider>
+      <Router>
+        <div id="app" className="d-flex flex-column h-100">
+          <NavBar />
+          <Switch>
+            <Route path="/profile" component={Profile} />
+            <Route path="/buy-royalties" component={BuyerPage} />
+            <Route path="/sell-royalties" component={SellerPage} />
+            <Route path="/" exact>
+              <Hero />
+              <Features />
+            </Route>
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </RoyaltyProvider>
   );
 };
 

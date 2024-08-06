@@ -55,7 +55,28 @@ const NavBar = () => {
                   Home
                 </NavLink>
               </NavItem>
-              
+              {isAuthenticated && (
+                <>
+                  <NavItem>
+                    <NavLink
+                      tag={RouterNavLink}
+                      to="/buy-royalties"
+                      activeClassName="router-link-exact-active"
+                    >
+                      Buy Royalties
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      tag={RouterNavLink}
+                      to="/sell-royalties"
+                      activeClassName="router-link-exact-active"
+                    >
+                      Sell Royalties
+                    </NavLink>
+                  </NavItem>
+                </>
+              )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (

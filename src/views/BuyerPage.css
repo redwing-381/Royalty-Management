@@ -1,0 +1,39 @@
+/* src/views/BuyerPage.css */
+
+.buyer-page {
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .royalty-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .royalty-item {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+  }
+  
+  .royalty-item:last-child {
+    border-bottom: none;
+  }
+  
+  .royalty-item h3 {
+    margin: 0 0 10px;
+  }
+  
+  .royalty-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  
