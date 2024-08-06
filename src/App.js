@@ -1,30 +1,45 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Loading from "./components/Loading";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import { useAuth0 } from "@auth0/auth0-react";
 import Hero from './components/Hero';
 import Features from './components/Features';
-import Footer from './components/Footer';
-import './App.css';
+// styles
+import "./App.css";
 
-function App() {
+// fontawesome
+import initFontAwesome from "./utils/initFontAwesome";
+initFontAwesome();
+
+const App = () => {
+  const { isLoading, error } = useAuth0();
+
+  if (error) {
+    return <div>Oops... {error.message}</div>;
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <Router>
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Features />
-            </>
-          } />
+      <div id="app" className="d-flex flex-column h-100">
+        <NavBar />
+        <Switch>
+          <Route path="/" exact>
+            <Hero />
+            <Features />
+          </Route>
           {/* Define other routes for Listings, Get Funding, etc. */}
-        </Routes>
+        </Switch>
         <Footer />
       </div>
     </Router>
   );
-}
+};
 
 export default App;
