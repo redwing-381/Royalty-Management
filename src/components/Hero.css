@@ -1,12 +1,11 @@
 /* Hero.css */
 
 .hero {
-    width: 100vw;
+    width: 100%;
     padding: 4em 2em;
     text-align: center;
-    background-color: hsl(220, 13%, 18%);
+    background-color: #282c34;
     color: white;
-    min-width: 100VW;
   }
   
   .hero h1 {
