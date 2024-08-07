@@ -6,6 +6,10 @@ import "./BuyerPage.css";
 const BuyerPage = () => {
   const { royalties } = useContext(RoyaltyContext);
 
+  const handleBuy = (royalty) => {
+    alert(`Purchased royalty: ${royalty.title} for ${royalty.price}`);
+  };
+
   return (
     <div className="buyer-page">
       <div className="container">
@@ -14,7 +18,7 @@ const BuyerPage = () => {
           {royalties.map((royalty, index) => (
             <div key={index} className="royalty-item">
               <h3>{royalty.title}</h3>
-              <p>Price Range: {royalty.priceRange}</p>
+              <p>Price: {royalty.price}</p>
               <p>Details: {royalty.details}</p>
               <p>Additional Info: {royalty.info}</p>
               {royalty.image && (
@@ -24,6 +28,9 @@ const BuyerPage = () => {
                   className="royalty-image"
                 />
               )}
+              <button onClick={() => handleBuy(royalty)} className="buy-btn">
+                Buy
+              </button>
             </div>
           ))}
         </div>
