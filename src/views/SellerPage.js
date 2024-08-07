@@ -7,7 +7,7 @@ const SellerPage = () => {
   const { addRoyalty } = useContext(RoyaltyContext);
   const [formData, setFormData] = useState({
     title: "",
-    price: "",
+    priceRange: "",
     details: "",
     info: "",
     image: null,
@@ -34,7 +34,7 @@ const SellerPage = () => {
     alert("Royalty details submitted successfully!");
     setFormData({
       title: "",
-      price: "",
+      priceRange: "",
       details: "",
       info: "",
       image: null,
@@ -58,12 +58,12 @@ const SellerPage = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="price">Price (in BTC)</label>
+            <label htmlFor="priceRange">Price Range</label>
             <input
               type="text"
-              id="price"
-              name="price"
-              value={formData.price}
+              id="priceRange"
+              name="priceRange"
+              value={formData.priceRange}
               onChange={handleChange}
               required
             />
